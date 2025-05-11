@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medienbildung</title>
+    <base href="/" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Playfair+Display:wght@400;700&display=swap">
+    <!-- If you add any scoped CSS files, uncomment the following to load them
+    <link href="Medienbildung.styles.css" rel="stylesheet" /> -->
+    <style>
+        :root {
+            --primary: #3246ff;
+            --secondary: #00cc8e;
+            --accent: #ff3d71;
+            --light: #f5f7ff;
+            --dark: #152242;
+            --gray: #a7b7d8;
+            --gradient-primary: linear-gradient(135deg, #3246ff, #9f75ff);
+            --gradient-secondary: linear-gradient(135deg, #00cc8e, #5ce0b8);
+            --gradient-accent: linear-gradient(135deg, #ff3d71, #ff7f9f);
+            --font-sans: 'Montserrat', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            font-family: var(--font-sans);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        #app {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+
+        .loading-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.4;
+        }
+
+        .bg-shape-1 {
+            background: var(--gradient-primary);
+            width: 60vw;
+            height: 60vw;
+            top: -20vw;
+            right: -20vw;
+            animation: float 8s infinite alternate ease-in-out;
+        }
+
+        .bg-shape-2 {
+            background: var(--gradient-secondary);
+            width: 50vw;
+            height: 50vw;
+            bottom: -15vw;
+            left: -15vw;
+            animation: float 10s infinite alternate-reverse ease-in-out;
+        }
+
+        .bg-shape-3 {
+            background: var(--gradient-accent);
+            width: 30vw;
+            height: 30vw;
+            top: 70%;
+            right: 15%;
+            animation: float 12s infinite alternate ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(2%, 2%) rotate(5deg); }
+        }
+
+        .loading-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo-title span {
+            position: relative;
+            font-style: italic;
+            padding: 0 0.2em;
+            color: white;
+            z-index: 1;
+        }
+
+        .logo-title span::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--accent);
+            z-index: -1;
+            transform: skewX(-10deg);
+            border-radius: 4px;
+        }
+
+        .loading-progress {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            position: relative;
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-progress circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+            r: 40;
+        }
+
+        .loading-progress circle:first-child {
+            stroke: rgba(255,255,255,0.3);
+        }
+
+        .loading-progress circle:last-child {
+            stroke: var(--primary);
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 125.6;
+            animation: dash 1.5s ease-in-out infinite;
+        }
+
+        @keyframes dash {
+            0% { stroke-dashoffset: 251.2; }
+            50% { stroke-dashoffset: 62.8; }
+            100% { stroke-dashoffset: 251.2; }
+        }
+
+        .loading-progress-text {
+            position: relative;
+            font-weight: 500;
+            color: var(--dark);
+            opacity: 0;
+            animation: fadeIn 0.4s ease-in-out forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .loading-progress-text::after {
+            content: 'Medien werden geladen';
+            animation: loadingText 2s infinite;
+        }
+
+        @keyframes loadingText {
+            0% { content: 'Medien werden geladen'; }
+            33% { content: 'Medien werden geladen.'; }
+            66% { content: 'Medien werden geladen..'; }
+            100% { content: 'Medien werden geladen...'; }
+        }
+
+        #blazor-error-ui {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--accent);
+            color: white;
+            padding: 1rem;
+            z-index: 10000;
+            display: none;
+            text-align: center;
+        }
+
+        #blazor-error-ui .reload {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        #blazor-error-ui .dismiss {
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="loading-background">
+            <div class="bg-shape bg-shape-1"></div>
+            <div class="bg-shape bg-shape-2"></div>
+            <div class="bg-shape bg-shape-3"></div>
+        </div>
+        <div class="loading-content">
+            <h1 class="logo-title">Wie kann ich <span>mit</span> Medien lehren?</h1>
+            <svg class="loading-progress">
+                <circle r="40" cx="50" cy="50" />
+                <circle r="40" cx="50" cy="50" />
+            </svg>
+            <div class="loading-progress-text"></div>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="." class="reload">Reload</a>
+        <span class="dismiss">🗙</span>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
+</html>
