@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/app.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
     <style>
         :root {
             --primary: #3246ff;
@@ -110,26 +111,26 @@
             animation: fadeIn 1s ease forwards;
         }
 
-            .logo-title span {
-                position: relative;
-                color: white;
-                padding: 0 0.2em;
-                font-style: italic;
-                z-index: 1;
-            }
+        .logo-title span {
+            position: relative;
+            color: white;
+            padding: 0 0.2em;
+            font-style: italic;
+            z-index: 1;
+        }
 
-                .logo-title span::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: var(--accent);
-                    z-index: -1;
-                    transform: skewX(-10deg);
-                    border-radius: 4px;
-                }
+        .logo-title span::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--accent);
+            z-index: -1;
+            transform: skewX(-10deg);
+            border-radius: 4px;
+        }
 
         .loading-progress {
             width: 120px;
@@ -139,26 +140,26 @@
             animation: rotate 2.5s linear infinite;
         }
 
-            .loading-progress circle {
-                fill: none;
-                stroke-width: 8px;
-                stroke-linecap: round;
-                transform-origin: center;
-            }
+        .loading-progress circle {
+            fill: none;
+            stroke-width: 8px;
+            stroke-linecap: round;
+            transform-origin: center;
+        }
 
-                .loading-progress circle:nth-child(1) {
-                    stroke: var(--primary);
-                    stroke-dasharray: 80px;
-                    stroke-dashoffset: 60px;
-                    animation: loading1 2s ease-in-out infinite;
-                }
+        .loading-progress circle:nth-child(1) {
+            stroke: var(--primary);
+            stroke-dasharray: 80px;
+            stroke-dashoffset: 60px;
+            animation: loading1 2s ease-in-out infinite;
+        }
 
-                .loading-progress circle:nth-child(2) {
-                    stroke: var(--secondary);
-                    stroke-dasharray: 100px;
-                    stroke-dashoffset: 20px;
-                    animation: loading2 3s ease-in-out infinite;
-                }
+        .loading-progress circle:nth-child(2) {
+            stroke: var(--secondary);
+            stroke-dasharray: 100px;
+            stroke-dashoffset: 20px;
+            animation: loading2 3s ease-in-out infinite;
+        }
 
         @keyframes rotate {
             100% {
@@ -238,21 +239,21 @@
             max-width: 400px;
         }
 
-            #blazor-error-ui .reload {
-                color: var(--primary);
-                text-decoration: none;
-                font-weight: 600;
-                margin-left: 8px;
-            }
+        #blazor-error-ui .reload {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 8px;
+        }
 
-            #blazor-error-ui .dismiss {
-                cursor: pointer;
-                position: absolute;
-                right: 10px;
-                top: 10px;
-                color: var(--dark);
-                opacity: 0.7;
-            }
+        #blazor-error-ui .dismiss {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: var(--dark);
+            opacity: 0.7;
+        }
     </style>
 </head>
 
@@ -279,7 +280,13 @@
         <a href="." class="reload">Neu laden</a>
         <span class="dismiss">🗙</span>
     </div>
-    <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        setTimeout(function() {
+            const script = document.createElement('script');
+            script.src = document.querySelector('base').href + '_framework/blazor.webassembly.js';
+            document.body.appendChild(script);
+        }, 0);
+    </script>
 </body>
 
 </html>
