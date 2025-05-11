@@ -5,6 +5,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medienbildung</title>
+    <!-- Base path script for GitHub Pages compatibility -->
+    <script type="text/javascript">
+        // Dynamically set the base href based on whether we're on GitHub Pages or local development
+        (function () {
+            var path = window.location.pathname.split('/');
+            var baseHref = '/';
+            
+            // Check if we're on GitHub Pages (contains repository name in path)
+            if (window.location.hostname.indexOf('github.io') > -1) {
+                baseHref = '/Medienbildung-Mit-Medien-Lehren/';
+            }
+            
+            document.write('<base href="' + baseHref + '" />');
+        })();
+    </script>
+    <!-- Fallback base path if JavaScript is disabled -->
     <base href="/" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
