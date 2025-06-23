@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Medienbildung",
   "resources": {
-    "hash": "sha256-0v0MHhdYznqcvxLh7WFLU7HYrUDvOfdCMCo2TtG82Po=",
+    "hash": "sha256-0sd5vIbWVP4a+qkiFLZEhU33C4z1/uFmi5sNcbtnNJE=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Components.0nlssgykan.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Web.bipktkzgg8.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
@@ -34,7 +34,7 @@
       "System.Text.Json.u93pa0l0y4.wasm": "System.Text.Json.wasm",
       "System.Text.RegularExpressions.3zydt3n8n9.wasm": "System.Text.RegularExpressions.wasm",
       "System.Private.CoreLib.9u9y5a01f5.wasm": "System.Private.CoreLib.wasm",
-      "Medienbildung.0qu7e8gm36.wasm": "Medienbildung.wasm",
+      "Medienbildung.j6maxzdjcu.wasm": "Medienbildung.wasm",
       "dotnet.js": "dotnet.js",
       "dotnet.native.rtblh4npr3.js": "dotnet.native.js",
       "dotnet.native.aqhezbunpl.wasm": "dotnet.native.wasm",
@@ -91,7 +91,7 @@
       "System.Text.Encodings.Web.j8jbnca1on.wasm": "sha256-3cJRUrFjSoiaGlI3OmHNndawtN8Y5lEgLHYI76jlAvo=",
       "System.Text.Json.u93pa0l0y4.wasm": "sha256-0nbwSDJN6TofCR7dRVJthNFoOU5NdBoyzFtHdVa6lXs=",
       "System.Text.RegularExpressions.3zydt3n8n9.wasm": "sha256-sXTH9c57ccmOHrE+Bpsiewg0xWGtHrbl8KBKpTJW9VA=",
-      "Medienbildung.0qu7e8gm36.wasm": "sha256-uPoIIw4f2hbBXqlXCupySEkBZ3/b7Rik//oEoFu/8To="
+      "Medienbildung.j6maxzdjcu.wasm": "sha256-NbSvCtoMX5q6xVlwsrs6/MaUSt8mBdqLHvRp/fituYc="
     }
   },
   "cacheBootResources": true,
